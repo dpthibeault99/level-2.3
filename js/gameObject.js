@@ -125,4 +125,29 @@ function gameObject(x,y,w,h, color)
         }
         return false
     }
+
+    this.update = function(){
+    this.x += this.speedX;
+    this.y += this.speedY;
+
+    // RIGHT
+    if (this.x + this.height > this.canvas.width) {
+        this.x = this.canvas.width - this.radius;
+    }
+
+    // LEFT
+    if (this.x - this.width < 0) {
+        this.x = this.width;
+    }
+
+    // BOTTOM
+    if (this.y + this.height > this.canvas.height) {
+        this.y = this.canvas.height - this.height;
+    }
+
+    // TOP
+    if (this.y - this.height < 0) {
+        this.y = this.height;
+    }
+}
 }

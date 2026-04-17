@@ -28,13 +28,17 @@ function animate(){
         {
                 player.y += 4
         }
+        boundry();
         player.drawRect();
         player.move();
 }
 
-function boundry(){
-        if (player.y > canvas.height + player.height)
-        {
-                player.y = player.height/2;
-        }
+function boundry() {
+    if (player.y > canvas.height - player.height / 2) {
+        player.y = canvas.height - player.height / 2;
+    }
+
+    if (player.y < player.height / 2) {
+        player.y = player.height / 2;
+    }
 }
